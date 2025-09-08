@@ -1,0 +1,694 @@
+/* Estilos mejorados para el panel de administración */
+
+/* Variables CSS personalizadas */
+:root {
+    --primary-color: #0d6efd;
+    --primary-dark: #0b5ed7;
+    --success-color: #198754;
+    --success-dark: #157347;
+    --info-color: #0dcaf0;
+    --info-dark: #0aa2c0;
+    --warning-color: #ffc107;
+    --warning-dark: #e0a800;
+    --danger-color: #dc3545;
+    --danger-dark: #bb2d3b;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-400: #ced4da;
+    --gray-500: #adb5bd;
+    --gray-600: #6c757d;
+    --gray-700: #495057;
+    --gray-800: #343a40;
+    --gray-900: #212529;
+    
+    --border-radius: 0.75rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+    --transition: all 0.3s ease;
+}
+
+/* Estilos base */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+    color: var(--gray-800);
+    line-height: 1.6;
+}
+
+/* Header del admin */
+.header-admin {
+    background: linear-gradient(135deg, var(--dark-color) 0%, var(--gray-900) 100%);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.header-admin .navbar-brand {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.header-admin .brand-text {
+    background: linear-gradient(45deg, #fff, var(--warning-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-admin .nav-link {
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.header-admin .nav-link:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+.header-admin .btn-outline-warning {
+    border-color: var(--warning-color);
+    color: var(--warning-color);
+}
+
+.header-admin .btn-outline-warning:hover {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+    color: var(--dark-color);
+}
+
+/* Dashboard header */
+.dashboard-header {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2rem;
+}
+
+.dashboard-title {
+    color: var(--gray-800);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-stats .badge {
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+}
+
+/* Tarjetas */
+.card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.card-header {
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-weight: 600;
+    margin: 0;
+    color: var(--gray-800);
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Formulario de login */
+#login-view .card {
+    border: none;
+    box-shadow: var(--box-shadow-lg);
+}
+
+#login-view .card-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+#login-view .card-header i {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#login-view .card-title {
+    color: white;
+    font-weight: 700;
+}
+
+#login-view .form-control {
+    border-radius: var(--border-radius);
+    border: 2px solid var(--gray-300);
+    transition: var(--transition);
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+}
+
+#login-view .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+#login-view .form-label {
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.75rem;
+}
+
+#login-view .btn-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    padding: 1rem 2rem;
+    transition: var(--transition);
+}
+
+#login-view .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+#login-error {
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+}
+
+/* Filtros y búsqueda */
+.input-group-text {
+    background-color: var(--gray-100);
+    border-color: var(--gray-300);
+    color: var(--gray-600);
+}
+
+#search-appointments {
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    border: 2px solid var(--gray-300);
+    border-left: none;
+}
+
+#search-appointments:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+#refresh-appointments {
+    border-radius: var(--border-radius);
+    border: 2px solid var(--gray-300);
+    color: var(--gray-600);
+    transition: var(--transition);
+}
+
+#refresh-appointments:hover {
+    background-color: var(--gray-200);
+    border-color: var(--gray-400);
+    transform: translateY(-2px);
+}
+
+/* Tabla de citas */
+.table {
+    margin-bottom: 0;
+}
+
+.table thead th {
+    background-color: var(--gray-800);
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+    transform: scale(1.01);
+    transition: var(--transition);
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Estados de las filas */
+.table tbody tr.table-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.table tbody tr.table-light {
+    background-color: rgba(108, 117, 125, 0.1);
+}
+
+/* Botones de acción */
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.btn-edit {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+.btn-cancel {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+}
+
+.btn-cancel:hover {
+    background-color: var(--danger-dark);
+    border-color: var(--danger-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+/* Estado sin citas */
+#no-appointments {
+    color: var(--gray-500);
+}
+
+#no-appointments i {
+    opacity: 0.5;
+}
+
+/* Modales */
+.modal-content {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--box-shadow-lg);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 1.5rem;
+}
+
+.modal-header.bg-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+}
+
+.modal-header.bg-danger {
+    background: linear-gradient(135deg, var(--danger-color) 0%, var(--danger-dark) 100%) !important;
+}
+
+/* Formulario de edición */
+#edit-appointment-form .form-control {
+    border-radius: var(--border-radius);
+    border: 2px solid var(--gray-300);
+    transition: var(--transition);
+    padding: 0.75rem 1rem;
+}
+
+#edit-appointment-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+#edit-appointment-form .form-label {
+    font-weight: 600;
+    color: var(--gray-700);
+    margin-bottom: 0.5rem;
+}
+
+/* Botones del modal */
+.modal-footer .btn {
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.modal-footer .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow);
+}
+
+/* Alertas del admin */
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+    box-shadow: var(--box-shadow);
+}
+
+.alert-success {
+    background-color: rgba(25, 135, 84, 0.1);
+    color: var(--success-color);
+    border-left: 4px solid var(--success-color);
+}
+
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: var(--danger-color);
+    border-left: 4px solid var(--danger-color);
+}
+
+.alert-warning {
+    background-color: rgba(255, 193, 7, 0.1);
+    color: var(--warning-dark);
+    border-left: 4px solid var(--warning-color);
+}
+
+.alert-info {
+    background-color: rgba(13, 202, 240, 0.1);
+    color: var(--info-dark);
+    border-left: 4px solid var(--info-color);
+}
+
+/* Indicadores de carga */
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estados de carga */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--gray-300);
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Mejoras para el estado de usuario */
+#user-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    backdrop-filter: blur(10px);
+}
+
+#user-email {
+    font-weight: 500;
+}
+
+/* Transiciones suaves para cambios de estado */
+#login-view,
+#dashboard-content {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#login-view[style*="display: none"],
+#dashboard-content[style*="display: none"] {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-header {
+        padding: 1.5rem;
+    }
+    
+    .dashboard-title {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-stats {
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .table thead th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    
+    .table tbody td {
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .dashboard-header {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        padding: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1.5rem;
+    }
+    
+    .modal-footer {
+        padding: 1rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.875rem;
+    }
+}
+
+/* Animaciones */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* Estados de hover mejorados */
+.btn:active {
+    transform: translateY(0);
+}
+
+.table tbody tr:hover td {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible para mejor accesibilidad */
+.btn:focus-visible,
+.form-control:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Estilos para badges y estados */
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.badge.bg-primary {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%) !important;
+}
+
+.badge.bg-secondary {
+    background: linear-gradient(135deg, var(--gray-600) 0%, var(--gray-700) 100%) !important;
+}
+
+/* Mejoras para la tabla */
+.table-hover tbody tr {
+    transition: var(--transition);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+    transform: scale(1.005);
+}
+
+/* Estilos para botones de grupo */
+.btn-group .btn {
+    border-radius: 0;
+}
+
+.btn-group .btn:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.btn-group .btn:last-child {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+/* Estilos para iconos en la tabla */
+.table tbody td i {
+    font-size: 1.1rem;
+}
+
+.table tbody td .text-primary {
+    color: var(--primary-color) !important;
+}
+
+.table tbody td .text-success {
+    color: var(--success-color) !important;
+}
+
+.table tbody td .text-muted {
+    color: var(--gray-600) !important;
+}
+
+/* Mejoras para el formulario de búsqueda */
+.input-group {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Estilos para mensajes de estado vacío */
+#no-appointments {
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+    border-radius: var(--border-radius);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+#no-appointments i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+#no-appointments h5 {
+    color: var(--gray-600);
+    margin-bottom: 0.5rem;
+}
+
+#no-appointments p {
+    color: var(--gray-500);
+    margin: 0;
+}
+
+.status-select {
+    min-width: 120px;
+    font-size: 0.95rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius);
+    border: 1.5px solid var(--gray-300);
+    background: var(--gray-100);
+    transition: var(--transition);
+}
+.status-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.15);
+}
+
+th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+#sort-status-icon {
+    font-size: 1rem;
+    margin-left: 0.25rem;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+    .status-select {
+        min-width: 80px;
+        font-size: 0.85rem;
+        padding: 0.15rem 0.3rem;
+    }
+    th, td {
+        padding: 0.5rem 0.3rem !important;
+    }
+}

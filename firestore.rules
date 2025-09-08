@@ -1,0 +1,55 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Función para verificar si el usuario autenticado es el administrador.
+    // ¡IMPORTANTE! Debes reemplazar "zndxc8jHNUSQokNZu21xQKzq9n92" con tu UID real.
+    function isAdmin() {
+      return request.auth.uid == "bk0HpRpK04NpVcdpru0MTFfmRTz2";
+    }
+
+    // --- Colección de Citas ---
+    match /appointments/{appointmentId} {
+      // Cualquiera puede crear una cita (un cliente que agenda).
+      allow create: if true;
+
+      // Solo el administrador puede leer, actualizar o borrar citas.
+      allow read, update, delete: if isAdmin();
+    }
+
+    // --- Colección de Horarios Ocupados (Pública) ---
+    match /publicBookedSlots/{slotId} {
+      // Cualquiera puede leer los horarios ocupados para construir el calendario.
+      allow read: if true;
+      
+      // Cualquiera puede escribir aquí al crear su cita.
+      allow create: if true;
+
+      // Nadie puede actualizar, pero el admin puede borrar (al cancelar una cita).
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    // --- Colección de Configuración ---
+    match /settings/{docId} {
+       // Cualquiera puede leer la configuración (ej: horarios de atención).
+      allow read: if true;
+      // Solo el administrador puede cambiar la configuración.
+      allow write: if isAdmin();
+    }
+
+    // --- Colecciones de Seguridad ---
+    match /securityLogs/{logId} {
+      // Nadie desde el cliente debe poder escribir o leer logs.
+      // Esto debería ser manejado por Cloud Functions (servidor).
+      allow read, write: if false;
+    }
+
+    match /rateLimits/{limitId} {
+       // Nadie desde el cliente debe poder escribir o leer los límites.
+      // Esto debería ser manejado por Cloud Functions (servidor).
+      allow read, write: if false;
+    }
+  }
+}
