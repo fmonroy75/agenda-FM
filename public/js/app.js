@@ -287,10 +287,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         const customerName = document.getElementById('customerName').value.trim();
         const phone = document.getElementById('phone').value.trim();
         const patientRut = document.getElementById('rut').value.trim();
+        const description = document.getElementById('description').value.trim();
         const email = document.getElementById('email').value.trim();
 
         // Validaciones adicionales
-        if (!customerName || !phone || !patientRut || !email) {
+        if (!customerName || !phone || !patientRut || !description || !email) {
             showErrorMessage("Por favor, completa todos los campos obligatorios.");
             return;
         }
@@ -306,6 +307,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 phone, 
                 patientRut, 
                 email,
+                description,
                 appointmentDate: appointmentTimestamp,
                 status: 'Agendado',
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -349,18 +351,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     function setupFormValidations() {
         const rutInput = document.getElementById('rut');
         const customerNameInput = document.getElementById('customerName');
+        const descriptionInput = document.getElementById('description');
         const phoneInput = document.getElementById('phone');
         const emailInput = document.getElementById('email');
         const submitButton = document.getElementById('submit-button');
 
-        if (rutInput && customerNameInput && phoneInput && emailInput && submitButton) {
+        if (rutInput && customerNameInput && descriptionInput && phoneInput && emailInput && submitButton) {
             const validateForm = () => {
                 const isRutValid = validarRutChileno(rutInput.value);
                 const isNameValid = customerNameInput.value.trim().length > 0;
+                const isdescriptionValid = descriptionInput.value.trim().length > 0;
                 const isPhoneValid = phoneInput.value.trim().length > 0;
                 const isEmailValid = emailInput.value.trim().length > 0 && isValidEmail(emailInput.value);
                 
-                submitButton.disabled = !(isRutValid && isNameValid && isPhoneValid && isEmailValid);
+                submitButton.disabled = !(isRutValid && isNameValid && isdescriptionValid && isPhoneValid && isEmailValid);
             };
 
             // Validar RUT

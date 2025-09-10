@@ -111,6 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('edit-appointment-id').value = doc.id;
             document.getElementById('edit-customerName').value = app.customerName;
             document.getElementById('edit-patientRut').value = app.patientRut;
+            document.getElementById('edit-description').value = app.description;
             document.getElementById('edit-phone').value = app.phone;
             document.getElementById('edit-status').value = app.status || 'Agendado';
             
@@ -138,12 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const updatedData = {
             customerName: document.getElementById('edit-customerName').value.trim(),
             patientRut: document.getElementById('edit-patientRut').value.trim(),
+            description: document.getElementById('edit-description').value.trim(),
             phone: document.getElementById('edit-phone').value.trim(),
             status: document.getElementById('edit-status').value
         };
 
         // Validaciones
-        if (!updatedData.customerName || !updatedData.patientRut || !updatedData.phone) {
+        if (!updatedData.customerName || !updatedData.patientRut || !updatedData.description || !updatedData.phone) {
             showAdminAlert("Por favor, completa todos los campos obligatorios.", "warning");
             return;
         }

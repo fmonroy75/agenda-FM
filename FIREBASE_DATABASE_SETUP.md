@@ -59,6 +59,7 @@ workingHours | (mapa)
 | `email` | Cadena | `"email@email.com"` | Correo electrónico del paciente. |
 | `phone` | Cadena | `"+56978098228"` | Teléfono de contacto del paciente. |
 | `createdAt` | Timestamp | `August 18, 2025 at 4:53:40 PM` | Cuándo se creó el registro de la cita. |
+| `description` | string | `reunion` | el motivo de la cita. |
 
 ### 3. Colección `publicBookedSlots`
 
