@@ -15,7 +15,7 @@ Aquí se especifica qué información (campos) contiene un documento dentro de c
 
 ### 1. Colección `settings`
 
-*   **ID del Documento**: **Personalizado y Fijo** (ej: `global_config`).
+*   **ID del Documento**: **Personalizado y Fijo** systemSettings(ej: `global_config`).
 *   **Propósito**: Contiene la configuración global de la agenda.
 
 | Campo | Tipo de Dato | Ejemplo | Descripción |
@@ -24,6 +24,26 @@ Aquí se especifica qué información (campos) contiene un documento dentro de c
 | `workingDays` | Array (lista) | `["Monday", "Friday"]` | Los días de la semana en que se trabaja. |
 | `workingHours` | Mapa (objeto) | `{start: "09:00", end: "18:00"}` | Hora de inicio y fin de la jornada. |
 | `blockedDates` | Array (lista) | `["2025-12-25"]` | Fechas específicas no disponibles. |
+
+appointmentDuration | 30 | (número)
+blockedDates | (array)
+  0  | "2025-09-18" | (cadena)
+blockedHours | (array)
+  0 | (mapa)
+    date | "2025-09-08" | (cadena)
+    time | "10:00" | (cadena)
+updatedAt | 9 de septiembre de 2025, 9:00:00 a.m. UTC-4 | (marca de tiempo)
+workingDays | (array)
+  0 | "Monday" | (cadena)
+  1 | "Tuesday" | (cadena)
+  2 | "Wednesday" | (cadena)
+  3 | "Thursday" | (cadena)
+  4 | "Friday" | (cadena)
+workingHours | (mapa)
+  end | "18:00" | (cadena)
+  start | "09:00" | (cadena)
+
+
 
 ### 2. Colección `appointments`
 
