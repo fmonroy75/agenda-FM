@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         try {
             settings = await fetchSettings();
             bookedSlots = await fetchBookedSlots();
-            console.log('settings:', settings); // <-- aquí
+            //console.log('settings:', settings); // <-- aquí
             renderCalendar(currentDate.getFullYear(), currentDate.getMonth());
             updateProgressIndicator(1);
         } catch (error) {
@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             dayBtn.textContent = day;
             const fullDate = new Date(year, month, day);
             const dayOfWeek = fullDate.toLocaleString('en-US', { weekday: 'long' });
-            console.log('workingDays:', workingDays, 'dayOfWeek:', dayOfWeek); // <-- agrega esto
+            //console.log('workingDays:', workingDays, 'dayOfWeek:', dayOfWeek); // <-- agrega esto
             const isoDate = fullDate.toISOString().slice(0, 10);
             // Marcar día actual
             if (fullDate.toDateString() === new Date().toDateString()) {
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Scroll suave al formulario
         bookingFormSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
         
-        console.log("Hora seleccionada:", dateTime);
+        //console.log("Hora seleccionada:", dateTime);
     }
 
     function showSection(section) {

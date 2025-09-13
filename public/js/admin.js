@@ -388,7 +388,18 @@ document.addEventListener('DOMContentLoaded', () => {
         // Crear alerta temporal
         const alertDiv = document.createElement('div');
         alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed`;
-        alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+        //alertDiv.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+            alertDiv.style.cssText = `
+        position: fixed;
+        left: 50%;
+        top: 80px;
+        transform: translateX(-50%);
+        z-index: 9999;
+        min-width: 350px;
+        max-width: 90vw;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    `;
+
         alertDiv.innerHTML = `
             ${message}
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
